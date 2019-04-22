@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DemoContainer from "../containers/demo_container";
 
 class App extends Component {
   render() {
@@ -6,6 +7,7 @@ class App extends Component {
       <div className="App">
         react-redux-typescript <br />
         poloniex copy
+        <DemoContainer />
       </div>
     );
   }
