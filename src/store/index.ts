@@ -1,20 +1,22 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+// import saga from "redux-saga";
+import thunk from "redux-thunk";
 
 // reducers
-import projectInfo from "./project/reducer";
-import { IProjectState } from "./project/type";
+import marketList from "./marketList/reducer";
+import { IMarketListState } from "./marketList/type";
 
 export interface AppState {
-  projectInfo: IProjectState;
+  marketList: IMarketListState;
 }
 
-const rootReducer = combineReducers({
-  projectInfo
+const rootReducer = combineReducers<AppState>({
+  marketList
 });
 
 // configureStore
 const configureStore = () => {
-  const middlewares: any[] = [];
+  const middlewares: any[] = [thunk];
 
   // logger, works only in development environments
   if (process.env.NODE_ENV !== "production") {
